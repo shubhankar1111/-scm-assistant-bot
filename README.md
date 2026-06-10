@@ -140,10 +140,9 @@ scm-assistant-bot/
 └── screenshots/
     ├── 01_document_store.png
     ├── 02_chunk_config_a.png
-    ├── 03_chunk_config_b.png
-    ├── 04_chatflow_canvas.png
-    ├── 05_share_chatbot.png
-    └── 06_sample_qa.png
+    ├── 03_chatflow_canvas.png
+    ├── 04_share_chatbot.png
+    └── 05_sample_qa.png
 ```
 
 ---
