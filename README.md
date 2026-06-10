@@ -5,16 +5,16 @@ Answers questions about a 116-supplier network using purchase order data and the
 
 ---
 
-## 🔗 Links
+## Links
 
 | Resource | URL |
 |---|---|
 | **Public Chatbot** | https://cloud.flowiseai.com/chatbot/6dd7e0d4-8716-4113-9e09-5f8bb4b9f6a4 |
-| **GitHub Repo** | `https://github.com/[your-username]/scm-assistant-bot` |
+| **GitHub Repo** | `https://github.com/shubhankar1111/scm-assistant-bot` |
 
 ---
 
-## 🛠️ Stack
+## Stack
 
 | Component | Choice | Reason |
 |---|---|---|
@@ -26,7 +26,7 @@ Answers questions about a 116-supplier network using purchase order data and the
 
 ---
 
-## 📁 Data Files
+## Data Files
 
 | File | Description |
 |---|---|
@@ -35,7 +35,7 @@ Answers questions about a 116-supplier network using purchase order data and the
 
 ---
 
-## ⚙️ Chunk Configurations Tested
+## Chunk Configurations Tested
 
 ### Config A — Smaller Chunks (used in final build)
 
@@ -67,7 +67,7 @@ Answers questions about a 116-supplier network using purchase order data and the
 
 ---
 
-## 💬 Sample Q&A (Verbatim Chatbot Output)
+## Sample Q&A (Verbatim Chatbot Output)
 
 ### Q1 — Tier-3 suppliers with active disruption flag
 
@@ -114,7 +114,7 @@ Answers questions about a 116-supplier network using purchase order data and the
 
 ---
 
-## 🚀 What I'd Improve
+## What I'd Improve
 
 1. **Structured data retrieval for CSV:** Plain text chunking of CSV rows is lossy — a dedicated SQL or pandas tool would allow exact aggregations (SUM, GROUP BY region) instead of relying on the LLM to approximate from retrieved text chunks.
 
@@ -130,7 +130,7 @@ Answers questions about a 116-supplier network using purchase order data and the
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 scm-assistant-bot/
@@ -148,7 +148,7 @@ scm-assistant-bot/
 
 ---
 
-## 🔒 Security
+## Security
 
 API keys are **never** committed to this repository. All credentials are managed via environment variables and excluded by `.gitignore`.
 
