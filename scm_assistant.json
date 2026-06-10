@@ -1,0 +1,102 @@
+{
+  "nodes": [
+    {
+      "id": "huggingFaceInferenceEmbeddings_0",
+      "position": { "x": 200, "y": 400 },
+      "type": "customNode",
+      "data": {
+        "id": "huggingFaceInferenceEmbeddings_0",
+        "label": "HuggingFace Inference Embedding",
+        "name": "huggingFaceInferenceEmbeddings",
+        "type": "HuggingFaceInferenceEmbeddings",
+        "category": "Embeddings",
+        "inputs": {
+          "model": "sentence-transformers/all-MiniLM-L6-v2",
+          "endpoint": ""
+        }
+      }
+    },
+    {
+      "id": "pinecone_0",
+      "position": { "x": 500, "y": 300 },
+      "type": "customNode",
+      "data": {
+        "id": "pinecone_0",
+        "label": "Pinecone",
+        "name": "pinecone",
+        "type": "Pinecone",
+        "category": "Vector Stores",
+        "inputs": {
+          "pineconeIndex": "scmstore",
+          "pineconeNamespace": "",
+          "topK": 4
+        }
+      }
+    },
+    {
+      "id": "groq_0",
+      "position": { "x": 500, "y": 100 },
+      "type": "customNode",
+      "data": {
+        "id": "groq_0",
+        "label": "Groq",
+        "name": "groq",
+        "type": "Groq",
+        "category": "Chat Models",
+        "inputs": {
+          "modelName": "llama-3.3-70b-versatile",
+          "temperature": 0.3,
+          "streaming": true
+        }
+      }
+    },
+    {
+      "id": "conversationalRetrievalQAChain_0",
+      "position": { "x": 900, "y": 300 },
+      "type": "customNode",
+      "data": {
+        "id": "conversationalRetrievalQAChain_0",
+        "label": "Conversational Retrieval QA Chain",
+        "name": "conversationalRetrievalQAChain",
+        "type": "ConversationalRetrievalQAChain",
+        "category": "Chains",
+        "inputs": {
+          "returnSourceDocuments": false
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-hf-pinecone",
+      "source": "huggingFaceInferenceEmbeddings_0",
+      "target": "pinecone_0",
+      "sourceHandle": "huggingFaceInferenceEmbeddings_0-output-huggingFaceInferenceEmbeddings",
+      "targetHandle": "pinecone_0-input-embeddings"
+    },
+    {
+      "id": "edge-pinecone-chain",
+      "source": "pinecone_0",
+      "target": "conversationalRetrievalQAChain_0",
+      "sourceHandle": "pinecone_0-output-retriever",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever"
+    },
+    {
+      "id": "edge-groq-chain",
+      "source": "groq_0",
+      "target": "conversationalRetrievalQAChain_0",
+      "sourceHandle": "groq_0-output-groqChat",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-model"
+    }
+  ],
+  "chatbotConfig": {
+    "title": "SCM Assistant",
+    "welcomeMessage": "Hello! I can answer questions about our supplier network and governance policy.",
+    "isPublic": true
+  },
+  "meta": {
+    "chatflowId": "6dd7e0d4-8716-4113-9e09-5f8bb4b9f6a4",
+    "createdDate": "2026-06-10",
+    "description": "RAG chatbot for supply chain management using Flowise, Pinecone, HuggingFace embeddings and Groq LLM"
+  }
+}
